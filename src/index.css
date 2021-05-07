@@ -33,5 +33,5 @@ button:focus {
 }
 
 .window-draggable__tool {
-  min-width: 400px;
+  min-width: 20vw;
 }

@@ -3,7 +3,7 @@ import React from "react";
 export interface DefaultProps {
   children?: React.ReactNode;
   className?: string;
-  key?: string | number;
+  key?: React.Key;
   onClick?: React.MouseEventHandler;
   title?: string;
 }

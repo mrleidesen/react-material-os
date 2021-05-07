@@ -26,7 +26,6 @@ export default function WindowApp(props: WindowProps) {
       }}
       defaultClassName={`window-draggable ${props.className ?? ""}`}
       onDrag={(e: any, data: any) => eventLogger(e, data)}
-      key={props.key}
       disabled={isZoom}
     >
       <div className={`shadow rounded flex flex-col bg-white ${isZoom ? 'w-full h-full' : ''} transition-all window-draggable__tool`} onClick={() => props.activeItem(props.id)}>
