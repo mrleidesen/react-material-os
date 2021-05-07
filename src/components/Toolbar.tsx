@@ -40,7 +40,7 @@ export default function Toolbar() {
 
 
   return (
-    <div className="bg-white bg-opacity-90 text-gray-700 h-9 shadow flex items-center justify-center relative">
+    <div className="bg-white bg-opacity-90 text-gray-700 h-9 shadow flex items-center justify-center relative z-50">
       <ClickAwayListener onClickAway={onClosePopover}>
         <div className="relative h-full flex justify-center items-center">
           <Chip 

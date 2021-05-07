@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       zIndex: ['hover', 'visited', 'active'],
       margin: ['hover'],
+      backgroundColor: ['hover', 'active', 'focus']
     },
   },
   plugins: [],
