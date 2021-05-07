@@ -24,12 +24,12 @@ export default function WindowApp(props: DefaultProps) {
         x: isZoom ? 0 : position.x,
         y: isZoom ? 0 : position.y
       }}
-      defaultClassName="window-draggble"
+      defaultClassName={`window-draggable ${props.className ?? ""}`}
       onDrag={(e: any, data: any) => eventLogger(e, data)}
       key={props.key}
       disabled={isZoom}
     >
-      <div className={`shadow rounded flex flex-col bg-white ${isZoom ? 'w-full h-full' : 'w-96'} transition-all ${props.className ?? ''}`}>
+      <div className={`shadow rounded flex flex-col bg-white ${isZoom ? 'w-full h-full' : 'w-96'} transition-all`} onClick={props.onClick}>
         <div className="flex p-1 items-center justify-end border-b border-gray-300 handle">
           <IconButton size="small">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

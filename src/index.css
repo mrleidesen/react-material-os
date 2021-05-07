@@ -20,10 +20,10 @@
     @apply absolute text-black -bottom-2 text-2xl;
   }
 
-  .window-draggble {
-    @apply z-10 absolute;
+  .window-draggable {
+    @apply z-10 absolute active:z-30;
   }
-  .window-draggble--active {
+  .window-draggable--active {
     @apply z-20;
   }
 }
