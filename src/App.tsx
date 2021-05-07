@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import Toolbar from '@/components/Toolbar'
 
 export default function App() {
-    return (
-        <div className="bg-white">Hello App</div>
-    )
+  return (
+    <div className="w-full h-screen overflow-hidden bg-wallpaper bg-center bg-cover">
+      <Toolbar />
+    </div>
+  );
 }
