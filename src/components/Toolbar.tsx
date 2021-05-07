@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
 import Chip from '@material-ui/core/Chip'
-import Fade from '@material-ui/core/Fade'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css'
 
 import dayjs from 'dayjs'
 
@@ -49,11 +50,11 @@ export default function Toolbar() {
             label={time}
             onClick={onTogglePopover}
           />
-          <Fade in={show}>
-            <div className="bg-white bg-opacity-90 shadow p-3 absolute top-9 rounded rounded-t-none">
-              HelloHello
+          {show ? (
+            <div className="bg-white bg-opacity-90 shadow p-3 absolute top-9 rounded rounded-t-none w-96">
+              <Calendar value={new Date()} className="reset-calendar" />
             </div>
-          </Fade>
+          ) : null}
         </div>
       </ClickAwayListener>
     </div>

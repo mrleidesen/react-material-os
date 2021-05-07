@@ -5,3 +5,8 @@
 .bg-wallpaper {
   background-image: url('./assets/bg.jpg');
 }
+
+.reset-calendar {
+  background: none !important;
+  border: none !important;
+}
