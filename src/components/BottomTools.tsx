@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import RoundIcon from './RoundIcon'
 
 export default function BottomTools() {
   const icons = [
@@ -35,10 +36,14 @@ export default function BottomTools() {
       )
     },
   ]
-  const [activeId, setActiveId] = useState<number | null>(null)
+  const [activeId, setActiveId] = useState<number[]>([])
 
   const onActive = (id: number) => {
-    setActiveId(id)
+    if (!activeId.includes(id)) {
+      setActiveId((prev) => [...prev, id])
+    } else {
+      setActiveId((prev) => prev.filter((prevId) => prevId !== id))
+    }
   }
 
   return (
@@ -46,7 +51,7 @@ export default function BottomTools() {
       <div className="bg-white bg-opacity-60 rounded-3xl min-w-min h-16 box-border p-4 shadow flex items-center justify-center">
         {
           icons.map((icon) => (
-            <RoundIcon key={icon.id} onClick={() => onActive(icon.id)} className={activeId === icon.id ? 'round-icon--active' : ''}>
+            <RoundIcon key={icon.id} onClick={() => onActive(icon.id)} className={activeId.includes(icon.id) ? 'round-icon--active' : ''}>
               {icon.icon}
             </RoundIcon>
           ))
@@ -56,16 +61,4 @@ export default function BottomTools() {
   )
 }
 
-interface RoundIconProps {
-  children?: React.ReactNode;
-  onClick?: React.MouseEventHandler;
-  className?: string;
-  key?: string | number;
-}
-const RoundIcon = ({ children, className, ...rest }: RoundIconProps) => {
-  return (
-    <div className={`round-icon ${className}`} {...rest}>
-      {children}
-    </div>
-  )
-}
+
