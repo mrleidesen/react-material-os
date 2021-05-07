@@ -16,7 +16,6 @@ export interface BottomToolsProps extends DefaultProps {
   activeItem?: ItemActive;
   deactiveItem?: ItemActive;
   hideItem?: ItemActive;
-  removeHideItem?: ItemActive;
   icons: IconsProps[];
   activeIds: number[];
 }
@@ -26,7 +25,6 @@ export interface MainContentProps extends BottomToolsProps {
   activeItem: ItemActive;
   deactiveItem: ItemActive;
   hideItem: ItemActive;
-  removeHideItem: ItemActive;
   hideIds: number[];
 }
 
@@ -41,4 +39,5 @@ export interface WindowProps extends DefaultProps {
   deactiveItem: ItemActive;
   hideItem: ItemActive;
   id: number;
+  label?: string;
 }

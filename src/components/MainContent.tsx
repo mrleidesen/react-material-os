@@ -13,6 +13,7 @@ export default function MainContent(props: MainContentProps) {
               <WindowApp 
                 key={icon.id}
                 id={icon.id}
+                label={icon.name}
                 className={`${props.activeId === icon.id ? 'window-draggable--active' : ''} ${props.hideIds.includes(icon.id) ? 'hidden' : ''}`}
                 activeItem={props.activeItem}
                 deactiveItem={props.deactiveItem}

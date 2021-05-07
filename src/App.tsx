@@ -87,7 +87,6 @@ export default function App() {
         activeItem={activeItem}
         deactiveItem={deactiveItem}
         hideItem={hideItem}
-        removeHideItem={removeHideItem}
         icons={icons}
         hideIds={hideIds}
       />
