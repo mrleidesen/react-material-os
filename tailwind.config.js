@@ -6,7 +6,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      zIndex: ['hover'],
+      zIndex: ['hover', 'focus', 'active'],
       margin: ['hover'],
     },
   },
