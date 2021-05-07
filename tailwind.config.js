@@ -7,7 +7,7 @@ module.exports = {
   variants: {
     extend: {
       zIndex: ['hover'],
-      margin: ['hover']
+      margin: ['hover'],
     },
   },
   plugins: [],
