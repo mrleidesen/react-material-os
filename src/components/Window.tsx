@@ -30,8 +30,9 @@ export default function WindowApp(props: WindowProps) {
     >
       <div className={`shadow rounded flex flex-col bg-white ${isZoom ? 'w-full h-full' : ''} window-draggable__tool`} onClick={() => props.activeItem(props.id)}>
         <div className="flex p-1 items-center justify-between box-border px-2 border-b border-gray-300 handle">
-          <div className="flex-1 text-gray-700 text-sm select-none" onDoubleClick={() => setIsZoom((prev) => !prev)}>
-            {props.label || '无标题'}
+          <div className="flex-1 flex items-center text-gray-700 text-sm select-none" onDoubleClick={() => setIsZoom((prev) => !prev)}>
+            <div className="h-5 w-5">{props.icon}</div>
+            <span className="ml-2">{props.label || '无标题'}</span>
           </div>
           <div className="flex items-center h-full justify-end">
             <IconButton size="small" onClick={() => props.hideItem(props.id)}>

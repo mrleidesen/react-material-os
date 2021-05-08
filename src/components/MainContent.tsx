@@ -29,6 +29,7 @@ export default function MainContent(props: MainContentProps) {
                 activeItem={props.activeItem}
                 deactiveItem={props.deactiveItem}
                 hideItem={props.hideItem}
+                icon={icon.icon}
               >
                 {componentHash[icon.id] || (
                   <p>{icon.name}</p>
