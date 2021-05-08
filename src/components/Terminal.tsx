@@ -39,7 +39,7 @@ export default function TerminalApp() {
       if (Object.keys(cmds).includes(cwd.toLowerCase())) {
         runCommand(cwd.toLowerCase())
       } else {
-        term.write(`Can not found command '\x1B[1;3;31m${cwd}\x1B[0m'\n\r$root: `)
+        term.write(`Can not found command '\x1B[1;3;31m${cwd}\x1B[0m', please type 'help'\n\r$root: `)
       }
       cwd = ""
     } else if (key === 'Backspace') {
