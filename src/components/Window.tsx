@@ -29,7 +29,7 @@ export default function WindowApp(props: WindowProps) {
       disabled={isZoom}
     >
       <div className={`shadow rounded flex flex-col bg-white ${isZoom ? 'w-full h-full' : ''} transition-all window-draggable__tool`} onClick={() => props.activeItem(props.id)}>
-        <div className="flex p-1 items-center justify-between box-border px-1 border-b border-gray-300 handle">
+        <div className="flex p-1 items-center justify-between box-border px-2 border-b border-gray-300 handle">
           <div className="flex-1 text-gray-700 text-sm">
             {props.label || '无标题'}
           </div>

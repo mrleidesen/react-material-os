@@ -2,7 +2,12 @@ import { MainContentProps } from '@/types/components'
 import React from 'react'
 import WindowApp from './Window'
 
+import Notepad from './Notepad'
+
 export default function MainContent(props: MainContentProps) {
+  // const componentHash = {
+  //   4: <Notepad />
+  // }
 
   return (
     <div className="relative flex-1">
@@ -19,7 +24,7 @@ export default function MainContent(props: MainContentProps) {
                 deactiveItem={props.deactiveItem}
                 hideItem={props.hideItem}
               >
-                <p>{icon.name}</p>
+                <Notepad />
               </WindowApp>
             )
           }
