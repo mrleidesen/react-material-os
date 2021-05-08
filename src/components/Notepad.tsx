@@ -16,7 +16,7 @@ export default function Notepad() {
   }
 
   return (
-    <div className="w-full h-full box-border p-2 bg-white text-gray-800 text-sm leading-normal whitespace-pre-line">
+    <div className="w-full h-auto box-border p-2 bg-white text-gray-800 text-sm leading-normal whitespace-pre-line">
       <textarea value={text} className="w-full h-64" onChange={onChangeText}>
       </textarea>
     </div>
