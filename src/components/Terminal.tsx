@@ -5,6 +5,13 @@ import 'xterm/css/xterm.css'
 export default function TerminalApp() {
   const el = useRef<HTMLDivElement>(null)
   const term = new Terminal()
+  const cmds: {[key: string]: string[]} = {
+    "ls": ['"Code"  "Download"  "Music"  "Video"'],
+    "help": [
+      "ls --- Check folder list",
+      "help --- Show command help"
+    ]
+  }
   let cwd = ""
 
   useEffect(() => {
@@ -28,15 +35,30 @@ export default function TerminalApp() {
 
   const writeInTerminal = (char: string, key: string) => {
     if (key === 'Enter') {
-      term.write(`\n\rCan not found command '\x1B[1;3;31m${cwd}\x1B[0m'\n\r$root: `)
+      term.write('\n\r')
+      if (Object.keys(cmds).includes(cwd.toLowerCase())) {
+        runCommand(cwd.toLowerCase())
+      } else {
+        term.write(`Can not found command '\x1B[1;3;31m${cwd}\x1B[0m'\n\r$root: `)
+      }
       cwd = ""
     } else if (key === 'Backspace') {
-      term.write('\b \b')
-      cwd = cwd.slice(0, cwd.length - 1)
+      if (cwd.length > 0) {
+        term.write('\b \b')
+        cwd = cwd.slice(0, cwd.length - 1)
+      }
     } else {
       term.write(char)
       cwd += char
     }
+  }
+
+  const runCommand = (key: string) => {
+    const needWriteLines = cmds[key]
+    for (const line of needWriteLines) {
+      term.writeln(line)
+    }
+    term.write('$root: ')
   }
 
   const disposeTerminal = () => {
