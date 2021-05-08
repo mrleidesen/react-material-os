@@ -14,7 +14,7 @@ export default function TerminalApp() {
       term.write('$root: ')
       term.onKey((key) => {
         if (key.key === '\r') {
-          term.write(`\n\rCan not found command '${cwd}'`)
+          term.write(`\n\rCan not found command '\x1B[1;3;31m${cwd}\x1B[0m'`)
           term.write(`\n${key.key}$root: `)
           cwd = ""
         } else {

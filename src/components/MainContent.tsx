@@ -4,9 +4,13 @@ import WindowApp from './Window'
 
 import Notepad from './Notepad'
 import Terminal from './Terminal'
+import Browser from './Browser'
+import File from './File'
 
 export default function MainContent(props: MainContentProps) {
   const componentHash: {[key: number]: React.ReactNode} = {
+    1: <File />,
+    2: <Browser />,
     3: <Terminal />,
     4: <Notepad />
   }
