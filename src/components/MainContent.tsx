@@ -3,11 +3,13 @@ import React from 'react'
 import WindowApp from './Window'
 
 import Notepad from './Notepad'
+import Terminal from './Terminal'
 
 export default function MainContent(props: MainContentProps) {
-  // const componentHash = {
-  //   4: <Notepad />
-  // }
+  const componentHash: {[key: number]: React.ReactNode} = {
+    3: <Terminal />,
+    4: <Notepad />
+  }
 
   return (
     <div className="relative flex-1">
@@ -24,13 +26,14 @@ export default function MainContent(props: MainContentProps) {
                 deactiveItem={props.deactiveItem}
                 hideItem={props.hideItem}
               >
-                <Notepad />
+                {componentHash[icon.id] || (
+                  <p>{icon.name}</p>
+                ) }
               </WindowApp>
             )
           }
         })
       }
-      {/* <WindowApp onClick={() => handleClick(1)} className={activeId === 1 ? 'window-draggable--active' : ''}></WindowApp> */}
     </div>
   )
 }

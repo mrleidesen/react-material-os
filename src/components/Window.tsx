@@ -51,7 +51,7 @@ export default function WindowApp(props: WindowProps) {
             </IconButton>
           </div>
         </div>
-        <div className="flex-1 overflow-auto">
+        <div className="flex-1 flex overflow-auto">
           {props.children}
         </div>
       </div>
