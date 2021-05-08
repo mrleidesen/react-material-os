@@ -40,16 +40,20 @@ export default function Toolbar() {
 
 
   return (
-    <div className="bg-white bg-opacity-90 text-gray-700 h-9 shadow flex items-center justify-center relative z-50">
+    <div className="bg-white bg-opacity-90 text-gray-700 h-6 shadow flex items-center justify-center relative z-50">
       <ClickAwayListener onClickAway={onClosePopover}>
         <div className="relative h-full flex justify-center items-center">
-          <Chip 
+          <span
+            className="h-full leading-6 px-2 text-xs cursor-pointer hover:bg-gray-800 hover:bg-opacity-10"
+            onClick={onTogglePopover}
+          >{time}</span>
+          {/* <Chip 
             variant="outlined"
             color="default"
             size="small"
             label={time}
             onClick={onTogglePopover}
-          />
+          /> */}
           {show ? (
             <div className="bg-white bg-opacity-90 shadow p-3 absolute top-9 rounded rounded-t-none w-96">
               <Calendar value={new Date()} className="reset-calendar" />
