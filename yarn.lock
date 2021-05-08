@@ -232,6 +232,11 @@
   dependencies:
     purgecss "^3.1.3"
 
+"@heroicons/react@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.nlark.com/@heroicons/react/download/@heroicons/react-1.0.1.tgz#66d25f6441920bd5c2146ea27fd33995885452dd"
+  integrity sha1-ZtJfZEGSC9XCFG6if9M5lYhUUt0=
+
 "@material-ui/core@^4.11.4":
   version "4.11.4"
   resolved "https://registry.nlark.com/@material-ui/core/download/@material-ui/core-4.11.4.tgz#4fb9fe5dec5dcf780b687e3a40cff78b2b9640a4"
