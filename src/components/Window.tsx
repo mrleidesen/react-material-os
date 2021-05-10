@@ -8,13 +8,13 @@ export default function WindowApp(props: WindowProps) {
   const [isZoom, setIsZoom] = useState(false)
   const [position, setPosition] = useState({ x: 100, y: 100 })
 
-  const onDragUpdatePosition = (e: DraggableEvent, data: DraggableData) => {
+  const onDragUpdatePosition = (_e: DraggableEvent, data: DraggableData) => {
     setPosition({
       x: data.x,
       y: data.y
     })
   }
-  const onStopPosition = (e: DraggableEvent, data: DraggableData) => {
+  const onStopPosition = (_e: DraggableEvent, data: DraggableData) => {
     if (data.y === 0) {
       setIsZoom(true)
       setPosition(prev => ({
