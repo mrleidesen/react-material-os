@@ -32,6 +32,7 @@ export default function Browser() {
           onChange={onChangeAddress}
           onKeyPress={onKeyChange}
           autoComplete="off"
+          placeholder="请输入网址"
         />
       </div>
       <iframe src={site} className="w-full flex-1"></iframe>

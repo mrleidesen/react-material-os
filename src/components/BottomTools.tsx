@@ -2,6 +2,8 @@ import { BottomToolsProps } from '@/types/components'
 import React from 'react'
 import RoundIcon from './RoundIcon'
 
+import GithubIcon from '@/assets/github.svg'
+
 export default function BottomTools(props: BottomToolsProps) {
   return (
     <div className="h-20 w-full box-border px-8 py-2 flex items-center justify-center relative z-50">
@@ -13,6 +15,14 @@ export default function BottomTools(props: BottomToolsProps) {
             </RoundIcon>
           ))
         }
+        <a 
+          target="_blank"
+          href="https://github.com/mrleidesen/react-material-os"
+        >
+          <RoundIcon>
+            <img src={GithubIcon} className="w-11/12 h-11/12 object-contain object-center" />
+          </RoundIcon>  
+        </a>
       </div>
     </div>
   )
