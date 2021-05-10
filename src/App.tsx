@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Toolbar from '@/components/Toolbar'
 import MainContent from '@/components/MainContent'
-import BottomTools from '@/components/BottomTools'
+import BottomTools from '@/components/Dock/BottomTools'
 import { IconsProps } from "./types/components";
 
 import {
