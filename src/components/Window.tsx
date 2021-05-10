@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Draggable from 'react-draggable'
+import Draggable, { DraggableEvent, DraggableData } from 'react-draggable'
 
 import IconButton from '@material-ui/core/IconButton'
 import { WindowProps } from '@/types/components'
@@ -8,11 +8,20 @@ export default function WindowApp(props: WindowProps) {
   const [isZoom, setIsZoom] = useState(false)
   const [position, setPosition] = useState({ x: 100, y: 100 })
 
-  const eventLogger = (e: MouseEvent, data: any) => {
+  const onDragUpdatePosition = (e: DraggableEvent, data: DraggableData) => {
     setPosition({
       x: data.x,
       y: data.y
     })
+  }
+  const onStopPosition = (e: DraggableEvent, data: DraggableData) => {
+    if (data.y === 0) {
+      setIsZoom(true)
+      setPosition(prev => ({
+        ...prev,
+        y: 10
+      }))
+    }
   }
 
   return (
@@ -25,7 +34,8 @@ export default function WindowApp(props: WindowProps) {
         y: isZoom ? 0 : position.y
       }}
       defaultClassName={`window-draggable ${props.className ?? ""}`}
-      onDrag={(e: any, data: any) => eventLogger(e, data)}
+      onDrag={onDragUpdatePosition}
+      onStop={onStopPosition}
       disabled={isZoom}
     >
       <div className={`shadow rounded flex flex-col bg-white ${isZoom ? 'w-full h-full' : ''} window-draggable__tool`} onClick={() => props.activeItem(props.id)}>

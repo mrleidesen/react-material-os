@@ -82,7 +82,7 @@ export default function File() {
           files.map(file => (
             <div 
               key={file.name}
-              className="h-24 w-24 rounded-lg flex flex-col justify-center items-center hover:bg-gray-800 hover:bg-opacity-5 cursor-pointer mr-2 mb-2"
+              className="h-24 w-24 rounded-lg flex flex-col justify-center items-center select-none hover:bg-gray-800 hover:bg-opacity-5 cursor-pointer mr-2 mb-2"
             >
               <div className="h-16 w-16">
                 {fileHash[file.type]}

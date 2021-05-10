@@ -2,10 +2,10 @@ import { MainContentProps } from '@/types/components'
 import React from 'react'
 import WindowApp from './Window'
 
-import Notepad from './Notepad'
-import Terminal from './Terminal'
-import Browser from './Browser'
-import File from './File'
+import Notepad from './App/Notepad'
+import Terminal from './App/Terminal'
+import Browser from './App/Browser'
+import File from './App/File'
 
 export default function MainContent(props: MainContentProps) {
   const componentHash: {[key: number]: React.ReactNode} = {
