@@ -38,11 +38,11 @@ button:focus, textarea:focus, input:focus {
 }
 
 .browser {
-  min-width: 500px;
+  min-width: 700px;
   min-height: 500px;
 }
 
 .folder {
-  min-width: 500px;
+  min-width: 600px;
   min-height: 500px;
 }
