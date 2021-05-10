@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { checkURLIsValid } from '@/utils'
 
 export default function Browser() {
   const [site, setSite] = useState("https://bing.com")
@@ -8,12 +9,17 @@ export default function Browser() {
     setAddress(e.target.value)
   }
   const onKeyChange = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      const host = address.split('//')
-      const checkSite = `https://${host.length === 1 ? host[0] : host[1]}`
-      setSite(checkSite)
-      setAddress(checkSite)
+    if (e.key !== 'Enter') return
+    let url = ''
+    const isValid = checkURLIsValid(address)
+    if (isValid) {
+      const host = address.split('://')
+      url = `https://${host[1] ?? host[0]}`
+    } else {
+      url = `https://bing.com/search?q=${address}`
     }
+    setSite(url)
+    setAddress(url)
   }
 
   return (
