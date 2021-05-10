@@ -35,11 +35,12 @@ export default function TerminalApp() {
 
   const writeInTerminal = (char: string, key: string) => {
     if (key === 'Enter') {
+      const cmd = cwd.trim().split(' ')[0].toLowerCase()
       term.write('\n\r')
-      if (Object.keys(cmds).includes(cwd.toLowerCase())) {
-        runCommand(cwd.toLowerCase())
+      if (Object.keys(cmds).includes(cmd)) {
+        runCommand(cmd)
       } else {
-        term.write(`Can not found command '\x1B[1;3;31m${cwd}\x1B[0m', please type 'help'\n\r$root: `)
+        term.write(`Can not found command '\x1B[1;3;31m${cmd}\x1B[0m', please type 'help'\n\r$root: `)
       }
       cwd = ""
     } else if (key === 'Backspace') {
