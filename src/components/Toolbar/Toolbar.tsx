@@ -109,15 +109,23 @@ const showCalendar = () => (
   </div>
 )
 
-const showVolume = () => (
-  <div className="w-64 flex items-center justify-between toolbar-fixover">
-    <VolumeOffIcon className="w-4 h-4 mr-2" />
-    <div className="flex-1">
-      <Slider value={20} aria-labelledby="continuous-slider" />
+const showVolume = () => {
+  const [volume, setVolume] = useState(50)
+
+  const onChangeVolume = (_e: any, value: number | number[]) => {
+    setVolume(value as number)
+  }
+
+  return (
+    <div className="w-64 flex items-center justify-between toolbar-fixover">
+      <VolumeOffIcon className="w-4 h-4 mr-2" />
+      <div className="flex-1">
+        <Slider value={volume} onChange={onChangeVolume} aria-labelledby="continuous-slider" />
+      </div>
+      <VolumeUpIcon className="w-4 h-4 ml-2" />
     </div>
-    <VolumeUpIcon className="w-4 h-4 ml-2" />
-  </div>
-)
+  )
+}
 
 const showWifiMenu = () => {
   const [nowWifi, setNowWifi] = useState(0)
