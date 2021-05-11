@@ -4,6 +4,7 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
 import ToolbarItem from './ToolbarItem'
+import ClickShow from './ClickShow'
 
 import {
   SunIcon,
@@ -81,22 +82,10 @@ export default function Toolbar() {
           }
         </ToolbarItem>
       </div>
-      <ClickAwayListener onClickAway={onClosePopover}>
-        <div className="relative h-full flex justify-center items-center">
-          <ToolbarItem
-            className="text-xs"
-            onClick={onTogglePopover}
-          >
-            <ClockIcon className="w-3 h-3 mr-1" />
-            <span>{time}</span>
-          </ToolbarItem>
-          {show ? (
-            <div className="bg-white bg-opacity-90 shadow p-3 absolute top-9 rounded w-96">
-              <Calendar value={new Date()} className="reset-calendar" />
-            </div>
-          ) : null}
-        </div>
-      </ClickAwayListener>
+      <ClickShow showComponent={showCalendar()}>
+        <ClockIcon className="w-3 h-3 mr-1" />
+        <span>{time}</span>
+      </ClickShow>
       <div className="h-full flex">
         {
           icons.map((icon, index) => (
@@ -109,4 +98,10 @@ export default function Toolbar() {
     </div>
   )
 }
+
+const showCalendar = () => (
+  <div className="bg-white bg-opacity-90 shadow p-3 absolute top-9 rounded w-96">
+    <Calendar value={new Date()} className="reset-calendar" />
+  </div>
+)
 

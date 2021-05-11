@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Toolbar from '@/components/Toolbar'
+import Toolbar from '@/components/Toolbar/Toolbar'
 import MainContent from '@/components/MainContent'
 import BottomTools from '@/components/Dock/BottomTools'
 import { IconsProps } from "./types/components";
@@ -8,7 +8,6 @@ import {
   CollectionIcon,
   GlobeIcon,
   TerminalIcon,
-  CodeIcon
 } from '@heroicons/react/solid'
 
 import VSCodeIcon from '@/assets/vscode.png'

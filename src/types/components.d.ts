@@ -8,6 +8,10 @@ export interface DefaultProps {
   title?: string;
 }
 
+export interface ClickShowProps extends DefaultProps {
+  showComponent: React.ReactNode
+}
+
 export type RoundIconProps = DefaultProps
 
 export type ItemActive = (id: number) => void
