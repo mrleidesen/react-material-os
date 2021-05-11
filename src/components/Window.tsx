@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Draggable, { DraggableEvent, DraggableData } from 'react-draggable'
+import { Rnd } from 'react-rnd'
 
 import IconButton from '@material-ui/core/IconButton'
 import {
@@ -12,14 +12,15 @@ import { WindowProps } from '@/types/components'
 export default function WindowApp(props: WindowProps) {
   const [isZoom, setIsZoom] = useState(false)
   const [position, setPosition] = useState({ x: 100, y: 100 })
+  const [size, setSize] = useState({ width: 500, height: 400 })
 
-  const onDragUpdatePosition = (_e: DraggableEvent, data: DraggableData) => {
+  const onDragUpdatePosition = (_e: any, data: any) => {
     setPosition({
       x: data.x,
       y: data.y
     })
   }
-  const onStopPosition = (_e: DraggableEvent, data: DraggableData) => {
+  const onStopPosition = (_e: any, data: any) => {
     if (data.y === 0) {
       setIsZoom(true)
       setPosition(prev => ({
@@ -28,22 +29,35 @@ export default function WindowApp(props: WindowProps) {
       }))
     }
   }
+  const onResizeChange = (_e: MouseEvent | TouchEvent, _direction: any, ref: HTMLElement, _delta: any, r_position: any) => {
+    setSize({
+      width: ref.offsetWidth,
+      height: ref.offsetHeight
+    })
+    setPosition(r_position)
+  }
 
   return (
-    <Draggable
-      handle=".handle"
+    <Rnd
+      dragHandleClassName="handle"
       bounds="parent"
-      defaultPosition={{x: 100, y: 100}}
       position={{
         x: isZoom ? 0 : position.x,
         y: isZoom ? 0 : position.y
       }}
-      defaultClassName={`window-draggable ${props.className ?? ""}`}
+      size={{
+        width: isZoom ? '100%' : size.width,
+        height: isZoom ? '100%' : size.height,
+      }}
+      className={`window-draggable ${props.className ?? ""}`}
+      minHeight="300px"
+      minWidth="300px"
       onDrag={onDragUpdatePosition}
-      onStop={onStopPosition}
-      disabled={isZoom}
+      onDragStop={onStopPosition}
+      onResize={onResizeChange}
+      disableDragging={isZoom}
     >
-      <div className={`shadow rounded flex flex-col bg-gray-100 ${isZoom ? 'w-full h-full' : ''} window-draggable__tool`} onClick={() => props.activeItem(props.id)}>
+      <div className={`shadow rounded flex flex-col bg-gray-100 w-full h-full window-draggable__tool`} onClick={() => props.activeItem(props.id)}>
         <div className="flex p-1 items-center justify-between box-border px-2 border-b border-gray-300 handle">
           <div className="flex-1 flex items-center text-gray-700 text-sm select-none" onDoubleClick={() => setIsZoom((prev) => !prev)}>
             <div className="h-5 w-5">{props.icon}</div>
@@ -65,6 +79,6 @@ export default function WindowApp(props: WindowProps) {
           {props.children}
         </div>
       </div>
-    </Draggable>
+    </Rnd>
   )
 }

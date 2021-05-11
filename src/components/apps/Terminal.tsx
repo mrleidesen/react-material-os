@@ -67,7 +67,7 @@ export default function TerminalApp() {
   }
 
   return (
-    <div className="w-full h-auto bg-black box-border p-1" ref={el}>
+    <div className="w-full h-full bg-black box-border p-1" ref={el}>
     </div>
   )
 }

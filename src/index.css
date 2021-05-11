@@ -43,18 +43,3 @@ button:focus, textarea:focus, input:focus {
   min-width: 20vw;
   min-height: 300px;
 }
-
-.browser {
-  min-width: 700px;
-  min-height: 500px;
-}
-
-.folder {
-  min-width: 600px;
-  min-height: 500px;
-}
-
-.vscode {
-  min-width: 700px;
-  min-height: 600px;
-}

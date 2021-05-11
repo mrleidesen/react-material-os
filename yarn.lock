@@ -704,6 +704,11 @@ fast-glob@^3.2.5:
     micromatch "^4.0.2"
     picomatch "^2.2.1"
 
+fast-memoize@^2.5.1:
+  version "2.5.2"
+  resolved "https://registry.npm.taobao.org/fast-memoize/download/fast-memoize-2.5.2.tgz#79e3bb6a4ec867ea40ba0e7146816f6cdce9b57e"
+  integrity sha1-eeO7ak7IZ+pAug5xRoFvbNzptX4=
+
 fastq@^1.6.0:
   version "1.11.0"
   resolved "https://registry.npm.taobao.org/fastq/download/fastq-1.11.0.tgz?cache=0&sync_timestamp=1614183822444&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffastq%2Fdownload%2Ffastq-1.11.0.tgz#bb9fb955a07130a918eb63c1f5161cc32a5d0858"
@@ -1256,6 +1261,13 @@ quick-lru@^5.1.1:
   resolved "https://registry.npm.taobao.org/quick-lru/download/quick-lru-5.1.1.tgz?cache=0&sync_timestamp=1610610418577&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fquick-lru%2Fdownload%2Fquick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha1-NmST5rPkKjpoheLpnRj4D7eoyTI=
 
+re-resizable@6.9.0:
+  version "6.9.0"
+  resolved "https://registry.npm.taobao.org/re-resizable/download/re-resizable-6.9.0.tgz#9c3059b389ced6ade602234cc5bb1e12d231cd47"
+  integrity sha1-nDBZs4nO1q3mAiNMxbseEtIxzUc=
+  dependencies:
+    fast-memoize "^2.5.1"
+
 react-calendar@^3.4.0:
   version "3.4.0"
   resolved "https://registry.npm.taobao.org/react-calendar/download/react-calendar-3.4.0.tgz#25396ca0992b3b2042abca334515f6ff4d9878bc"
@@ -1275,7 +1287,7 @@ react-dom@^17.0.0:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-draggable@^4.4.3:
+react-draggable@4.4.3, react-draggable@^4.4.3:
   version "4.4.3"
   resolved "https://registry.npm.taobao.org/react-draggable/download/react-draggable-4.4.3.tgz#0727f2cae5813e36b0e4962bf11b2f9ef2b406f3"
   integrity sha1-ByfyyuWBPjaw5JYr8RsvnvK0BvM=
@@ -1297,6 +1309,15 @@ react-refresh@^0.9.0:
   version "0.9.0"
   resolved "https://registry.npm.taobao.org/react-refresh/download/react-refresh-0.9.0.tgz#71863337adc3e5c2f8a6bfddd12ae3bfe32aafbf"
   integrity sha1-cYYzN63D5cL4pr/d0Srjv+Mqr78=
+
+react-rnd@^10.2.4:
+  version "10.2.4"
+  resolved "https://registry.npm.taobao.org/react-rnd/download/react-rnd-10.2.4.tgz#542c28fa9cfcb3ad1521694dfa2799217832818f"
+  integrity sha1-VCwo+pz8s60VIWlN+ieZIXgygY8=
+  dependencies:
+    re-resizable "6.9.0"
+    react-draggable "4.4.3"
+    tslib "2.0.3"
 
 react-transition-group@^4.4.0:
   version "4.4.1"
@@ -1466,6 +1487,11 @@ to-regex-range@^5.0.1:
   integrity sha1-FkjESq58jZiKMmAY7XL1tN0DkuQ=
   dependencies:
     is-number "^7.0.0"
+
+tslib@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.nlark.com/tslib/download/tslib-2.0.3.tgz?cache=0&sync_timestamp=1618847097275&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
+  integrity sha1-jgdBrEX8DCJuWKF7/D5kubxsphw=
 
 typescript@^4.1.2:
   version "4.2.4"

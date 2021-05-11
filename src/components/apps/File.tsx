@@ -63,7 +63,7 @@ export default function File() {
     )
   }
   return (
-    <div className="w-full h-auto flex folder">
+    <div className="w-full h-full flex">
       <div className="w-36 h-full border-r flex flex-col">
         {
           menu.map(item => (

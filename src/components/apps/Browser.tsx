@@ -23,7 +23,7 @@ export default function Browser() {
   }
 
   return (
-    <div className="w-full h-auto flex flex-col browser">
+    <div className="w-full h-full flex flex-col">
       <div className="w-full h-7 flex items-center justify-center border-b border-gray-200 bg-gray-100">
         <input 
           type="text" 
