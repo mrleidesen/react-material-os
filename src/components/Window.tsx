@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import Draggable, { DraggableEvent, DraggableData } from 'react-draggable'
 
 import IconButton from '@material-ui/core/IconButton'
+import {
+  MinusIcon,
+  XIcon,
+  ArrowsExpandIcon
+} from '@heroicons/react/solid'
 import { WindowProps } from '@/types/components'
 
 export default function WindowApp(props: WindowProps) {
@@ -46,19 +51,13 @@ export default function WindowApp(props: WindowProps) {
           </div>
           <div className="flex items-center h-full justify-end">
             <IconButton size="small" onClick={() => props.hideItem(props.id)}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-              </svg>
+              <MinusIcon className="w-4 h-4" />
             </IconButton>
             <IconButton size="small" onClick={() => setIsZoom((prev) => !prev)}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-              </svg>
+              <ArrowsExpandIcon className="w-4 h-4" />
             </IconButton>
             <IconButton size="small" onClick={() => props.deactiveItem(props.id)}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
+              <XIcon className="w-4 h-4 text-red-500" />
             </IconButton>
           </div>
         </div>
