@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
+
 import ToolbarItem from './ToolbarItem'
 import ClickShow from './ClickShow'
 import Slider from '@material-ui/core/Slider';
-import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton'
 
 import {
   SunIcon,
@@ -14,9 +15,9 @@ import {
   WifiIcon,
   VolumeUpIcon,
   VolumeOffIcon,
-  UserIcon,
-  SearchIcon,
-  CheckIcon
+  CheckIcon,
+  AnnotationIcon,
+  XCircleIcon
 } from '@heroicons/react/solid'
 
 import dayjs from 'dayjs'
@@ -34,6 +35,10 @@ export default function Toolbar() {
     {
       icon: <WifiIcon className="w-4 h-4" />,
       showComponent: showWifiMenu()
+    },
+    {
+      icon: <AnnotationIcon className="w-4 h-4" />,
+      showComponent: showNotice()
     }
   ]
 
@@ -93,7 +98,6 @@ export default function Toolbar() {
             </ClickShow>
           ))
         }
-        
       </div>
     </div>
   )
@@ -138,6 +142,50 @@ const showWifiMenu = () => {
             { nowWifi === index ? <CheckIcon className="w-4 h-4" /> : null }
           </div>
         ))
+      }
+    </div>
+  )
+}
+
+const showNotice = () => {
+  const [notices, setNotices] = useState([
+    {
+      id: 1,
+      title: '版本更新',
+      content: '为了您的安全，请及时更新您的系统'
+    },
+    {
+      id: 2,
+      title: 'QQ消息通知',
+      content: '您收到99条未读消息，请及时查收'
+    },
+    {
+      id: 3,
+      title: '安全威胁',
+      content: '系统发现威胁，点击查看详情'
+    },
+  ])
+
+  const onCloseNotice = (id: number) => {
+    setNotices(prev => prev.filter(notice => notice.id !== id))
+  }
+
+  return (
+    <div className="toolbar-fixover w-80 h-96 flex flex-col overflow-y-auto select-none">
+      {
+        notices.length > 0 ? notices.map(notice => (
+          <div key={notice.id} className="w-full h-16 box-border p-2 rounded flex flex-col bg-gray-700 bg-opacity-5 mb-2 hover:bg-opacity-10">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-base font-semibold">{ notice.title }</span>
+              <IconButton size="small" onClick={() => onCloseNotice(notice.id)}>
+                <XCircleIcon className="w-4 h-4" />
+              </IconButton>
+            </div>
+            <span className="text-sm text-gray-600">{ notice.content }</span>
+          </div>
+        )) : (
+          <div className="w-full h-full flex justify-center items-center">当前无通知</div>
+        )
       }
     </div>
   )
