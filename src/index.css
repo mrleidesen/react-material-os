@@ -26,6 +26,13 @@
   .window-draggable--active {
     @apply z-20;
   }
+
+  .toolbar-popover {
+    @apply bg-white bg-opacity-90 shadow rounded p-3 absolute;
+  }
+  .toolbar-fixover {
+    @apply bg-gray-100 bg-opacity-90 shadow rounded p-3 fixed top-8 right-2;
+  }
 }
 
 button:focus, textarea:focus, input:focus {

@@ -43,7 +43,7 @@ export default function WindowApp(props: WindowProps) {
       onStop={onStopPosition}
       disabled={isZoom}
     >
-      <div className={`shadow rounded flex flex-col bg-white ${isZoom ? 'w-full h-full' : ''} window-draggable__tool`} onClick={() => props.activeItem(props.id)}>
+      <div className={`shadow rounded flex flex-col bg-gray-100 ${isZoom ? 'w-full h-full' : ''} window-draggable__tool`} onClick={() => props.activeItem(props.id)}>
         <div className="flex p-1 items-center justify-between box-border px-2 border-b border-gray-300 handle">
           <div className="flex-1 flex items-center text-gray-700 text-sm select-none" onDoubleClick={() => setIsZoom((prev) => !prev)}>
             <div className="h-5 w-5">{props.icon}</div>
