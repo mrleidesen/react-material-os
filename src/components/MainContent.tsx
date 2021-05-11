@@ -25,7 +25,7 @@ export default function MainContent(props: MainContentProps) {
                 key={icon.id}
                 id={icon.id}
                 label={icon.name}
-                className={`${props.activeId === icon.id ? 'window-draggable--active' : ''} ${props.hideIds.includes(icon.id) ? 'hidden' : ''}`}
+                className={`${props.activeId === icon.id ? 'window-draggable--active' : ''} ${props.hideIds.includes(icon.id) ? 'hidden-important' : ''}`}
                 activeItem={props.activeItem}
                 deactiveItem={props.deactiveItem}
                 hideItem={props.hideItem}
