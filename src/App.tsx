@@ -8,8 +8,10 @@ import {
   CollectionIcon,
   GlobeIcon,
   TerminalIcon,
-  DocumentIcon
+  CodeIcon
 } from '@heroicons/react/solid'
+
+import VSCodeIcon from '@/assets/vscode.png'
 
 export default function App() {
   const icons: IconsProps[] = [
@@ -37,9 +39,9 @@ export default function App() {
     {
       id: 4,
       icon: (
-        <DocumentIcon className="h-full w-full text-green-500" />
+        <img className="w-11/12 h-11/12 object-contain object-center" src={VSCodeIcon} />
       ),
-      name: '编辑器'
+      name: 'VSCode'
     },
   ]
   const [activeId, setActiveId] = useState<number | null>(null)

@@ -2,7 +2,7 @@ import { MainContentProps } from '@/types/components'
 import React from 'react'
 import WindowApp from './Window'
 
-import Notepad from './App/Notepad'
+import VSCode from './App/VSCode'
 import Terminal from './App/Terminal'
 import Browser from './App/Browser'
 import File from './App/File'
@@ -12,7 +12,7 @@ export default function MainContent(props: MainContentProps) {
     1: <File />,
     2: <Browser />,
     3: <Terminal />,
-    4: <Notepad />
+    4: <VSCode />
   }
 
   return (
