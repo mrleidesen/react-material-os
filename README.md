@@ -1,11 +1,10 @@
 # react-material-os
-使用`React`+`Material UI`+`Tailwind CSS`编写的一款仿MacOS和GNome的谷歌风OS（可能也并不谷歌风），缝合怪，两边都不是特别像，娱乐。
+使用`React`+`Material UI`+`Tailwind CSS`编写的OS（缝合怪的风格hhhhh），单纯练手React用
 
-偶尔会写一些新特性在这个项目中练手
+也偶尔会写一些新特性在这个项目中实验 
 
-## 预览
+## 在线预览
 [在线预览](https://mrleidesen.github.io/react-material-os/)
-
 
 ## 运行
 ```
