@@ -21,10 +21,10 @@
   }
 
   .window-draggable {
-    @apply z-10 absolute active:z-30;
+    @apply z-10 absolute active:z-30 shadow;
   }
   .window-draggable--active {
-    @apply z-20;
+    @apply z-20 shadow-lg;
   }
 
   .toolbar-popover {

@@ -47,18 +47,20 @@ export default function App() {
   const [activeIds, setActiveIds] = useState<number[]>([])
   const [hideIds, setHideIds] = useState<number[]>([])
 
-  const activeItem = (id: number) => {
+  const activeItem = (id: number | null) => {
     setActiveId(id)
   }
   const toggleActiveItem = (id: number) => {
-    activeItem(id)
     if (!activeIds.includes(id)) {
+      activeItem(id)
       setActiveIds(prev => [...prev, id])
     } else {
-      if (hideIds.includes(id)) {
-        setHideIds(prev => prev.filter(v => v !== id))
+      if (activeId === id) {
+        hideItem(id)
+        activeItem(null)
       } else {
-        setHideIds(prev => [...prev, id])
+        activeItem(id)
+        removeHideItem(id)
       }
     }
   }
