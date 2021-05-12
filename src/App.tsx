@@ -48,12 +48,19 @@ export default function App() {
   const [hideIds, setHideIds] = useState<number[]>([])
 
   const activeItem = (id: number | null) => {
-    setActiveId(id)
+    if (!id) {
+      setActiveId(null)
+    } else {
+      setActiveId(id)
+      setActiveIds(prev => {
+        const filterPrev = prev.filter(v => v !== id)
+        return [...filterPrev, id]
+      })
+    }
   }
   const toggleActiveItem = (id: number) => {
     if (!activeIds.includes(id)) {
       activeItem(id)
-      setActiveIds(prev => [...prev, id])
     } else {
       if (activeId === id) {
         hideItem(id)
@@ -65,12 +72,14 @@ export default function App() {
     }
   }
   const deactiveItem = (id: number) => {
+    activeItem(null)
     setActiveIds(prev => prev.filter(v => v !== id))
     removeHideItem(id)
   }
 
   const hideItem = (id: number) => {
     if (!hideIds.includes(id)) {
+      activeItem(null)
       setHideIds(prev => [...prev, id])
     }
   }

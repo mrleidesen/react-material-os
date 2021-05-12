@@ -15,29 +15,37 @@ export default function MainContent(props: MainContentProps) {
     4: <VSCode />
   }
 
+  const computedZIndex = (id: number) => {
+    const findIndex = props.activeIds.findIndex(activeId => activeId === id) + 1
+    const defaultZIndex = props.activeId === id ? 20 : 10
+
+    return defaultZIndex + findIndex
+  }
+
   return (
     <div className="relative flex-1">
       {
-        props.icons.map(icon => {
-          if (props.activeIds.includes(icon.id)) {
-            return (
-              <WindowApp 
-                key={icon.id}
-                id={icon.id}
-                label={icon.name}
-                className={`${props.activeId === icon.id ? 'window-draggable--active' : ''} ${props.hideIds.includes(icon.id) ? 'hidden-important' : ''}`}
-                activeItem={props.activeItem}
-                deactiveItem={props.deactiveItem}
-                hideItem={props.hideItem}
-                icon={icon.icon}
-              >
-                {componentHash[icon.id] || (
-                  <p>{icon.name}</p>
-                ) }
-              </WindowApp>
-            )
-          }
-        })
+        props.icons.map(icon => (
+          props.activeIds.includes(icon.id) ? (
+            <WindowApp 
+              key={icon.id}
+              id={icon.id}
+              label={icon.name}
+              className={`${props.activeId === icon.id ? 'window-draggable--active' : ''} ${props.hideIds.includes(icon.id) ? 'hidden-important' : ''}`}
+              activeItem={props.activeItem}
+              deactiveItem={props.deactiveItem}
+              hideItem={props.hideItem}
+              icon={icon.icon}
+              style={{
+                zIndex: computedZIndex(icon.id)
+              }}
+            >
+              {componentHash[icon.id] || (
+                <p>{icon.name}</p>
+              ) }
+            </WindowApp>
+          ) : null
+        ))
       }
     </div>
   )

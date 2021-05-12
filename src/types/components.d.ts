@@ -6,6 +6,7 @@ export interface DefaultProps {
   key?: React.Key;
   onClick?: React.MouseEventHandler;
   title?: string;
+  style?: React.CSSProperties;
 }
 
 export interface ClickShowProps extends DefaultProps {

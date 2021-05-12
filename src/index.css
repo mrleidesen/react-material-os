@@ -21,7 +21,10 @@
   }
 
   .window-draggable {
-    @apply z-10 absolute active:z-30 shadow;
+    @apply z-10 absolute shadow;
+  }
+  .window-draggable:active {
+    z-index: 99 !important;
   }
   .window-draggable--active {
     @apply z-20 shadow-lg;
