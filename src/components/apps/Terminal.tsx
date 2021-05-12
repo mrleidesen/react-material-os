@@ -1,73 +1,101 @@
-import React, { useEffect, useRef } from 'react'
-import { Terminal } from 'xterm'
-import 'xterm/css/xterm.css'
+import React, { useState } from 'react'
+import dayjs from 'dayjs'
+
+interface TerminalLine {
+  type: 'input' | 'show';
+  input?: string;
+  show?: string[]
+}
 
 export default function TerminalApp() {
-  const el = useRef<HTMLDivElement>(null)
-  const term = new Terminal()
-  const cmds: {[key: string]: string[]} = {
-    "ls": ['"Code"  "Download"  "Music"  "Video"'],
-    "help": [
-      "ls --- Check folder list",
-      "help --- Show command help"
-    ]
-  }
-  let cwd = ""
+  const [inputValue, setInputValue] = useState("")
+  const [inputIndex, setInputIndex] = useState(0)
+  const [lines, setLines] = useState<TerminalLine[]>([{
+    type: 'input',
+    input: ""
+  }])
 
-  useEffect(() => {
-    initTerminal()
-
-    return () => {
-      disposeTerminal()
-    }
-  }, [])
-
-  const initTerminal = () => {
-    if (el.current) {
-      term.open(el.current)
-      term.write('Welcome to \x1B[1;3;31mReact Material OS\x1B[0m\n\r$root: ')
-      term.onKey((key) => {
-        const keyName = key.domEvent.key
-        writeInTerminal(key.key, keyName)
-      })
+  const onKeyEnter = (e: React.KeyboardEvent, index: number) => {
+    if (e.code === 'Enter') {
+      executeCommand(inputValue, index)
+      setInputIndex(prev => prev + 1)
+      setInputValue("")
     }
   }
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value)
+  }
 
-  const writeInTerminal = (char: string, key: string) => {
-    if (key === 'Enter') {
-      const cmd = cwd.trim().split(' ')[0].toLowerCase()
-      term.write('\n\r')
-      if (Object.keys(cmds).includes(cmd)) {
-        runCommand(cmd)
-      } else {
-        term.write(`Can not found command '\x1B[1;3;31m${cmd}\x1B[0m', please type 'help'\n\r$root: `)
-      }
-      cwd = ""
-    } else if (key === 'Backspace') {
-      if (cwd.length > 0) {
-        term.write('\b \b')
-        cwd = cwd.slice(0, cwd.length - 1)
-      }
-    } else {
-      term.write(char)
-      cwd += char
+  const executeCommand = (cmd: string, index: number) => {
+    setLines(prev => {
+      prev[index].input = inputValue
+      return [...prev, {
+        type: 'show',
+        show: runCommond(cmd)
+      }]
+    })
+    addNewLine()
+  }
+
+  const runCommond = (text: string) => {
+    const cmd = text.trim().split(' ')[0].toLowerCase()
+
+    switch(cmd) {
+      case 'ls':
+        return ['Download', 'Folder', 'Music', 'Video']
+      case 'help':
+        return [
+          'help --- Show this list', 
+          'ls --- Show folder',
+          'date --- Show time'
+        ]
+      case 'date':
+        return [`${dayjs().format()}`]
+      default:
+        return [`Can not found command '${cmd}', please check help`]
     }
   }
 
-  const runCommand = (key: string) => {
-    const needWriteLines = cmds[key]
-    for (const line of needWriteLines) {
-      term.writeln(line)
-    }
-    term.write('$root: ')
+  const addNewLine = () => {
+    setInputIndex(lines.length)
+    setLines(prev => [...prev, {
+      type: 'input',
+      input: ""
+    }])
   }
-
-  const disposeTerminal = () => {
-    term.dispose()
-  }
-
+  
   return (
-    <div className="w-full h-full bg-black box-border p-1" ref={el}>
+    <div className="w-full h-full bg-gray-700 overflow-auto box-border p-2 flex flex-col">
+      {
+        lines.map((line, i) => {
+          if (line.type === 'input') {
+            return (
+              <div key={i} className="w-full flex items-center font-mono mb-2">
+                <span className="text-xs font-semibold select-none text-green-500">MrLeiDeSen@root ~ </span>
+                <input 
+                  type="text" 
+                  className="ring-0 border-none bg-transparent px-2 flex-1 py-0 text-xs text-white" 
+                  value={i !== inputIndex ? line.input : inputValue}
+                  readOnly={i !== inputIndex}
+                  onChange={onInputChange}
+                  onKeyUp={(e) => onKeyEnter(e, i)}
+                  autoFocus={true}
+                />
+              </div>
+            )
+          } else if (line.type === 'show') {
+            return (
+              <div key={i} className="w-full flex flex-col font-mono mb-1">
+                {
+                  line.show && line.show.map((text, idx) => (
+                    <p key={idx} className="text-xs text-white mb-1">{text}</p>
+                  ))
+                }
+              </div>
+            )
+          }
+        })
+      }
     </div>
   )
 }

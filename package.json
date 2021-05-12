@@ -16,10 +16,8 @@
     "react": "^17.0.0",
     "react-calendar": "^3.4.0",
     "react-dom": "^17.0.0",
-    "react-draggable": "^4.4.3",
     "react-rnd": "^10.2.4",
-    "tailwindcss": "^2.1.1",
-    "xterm": "^4.11.0"
+    "tailwindcss": "^2.1.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.37",
