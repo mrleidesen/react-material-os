@@ -4,7 +4,6 @@ import {
   MusicNoteIcon,
   VideoCameraIcon,
   DownloadIcon,
-  CogIcon
 } from '@heroicons/react/outline'
 import {
   DocumentTextIcon,
@@ -56,7 +55,7 @@ export default function File() {
         },
         {
           name: 'test.mp3',
-          type: 'file'
+          type: 'music'
         },
       ]
     },
@@ -67,6 +66,10 @@ export default function File() {
         <VideoCameraIcon className="h-full w-full text-green-500" />
       ),
       children: [
+        {
+          name: 'Game.mp4',
+          type: 'video'
+        },
       ]
     },
     {
@@ -86,6 +89,12 @@ export default function File() {
     ),
     'folder': (
       <FolderOpenIcon className="h-full w-full text-blue-500" />
+    ),
+    'music': (
+      <MusicNoteIcon className="h-full w-full text-red-500" />
+    ),
+    'video': (
+      <VideoCameraIcon className="h-full w-full text-green-500" />
     )
   }
   return (

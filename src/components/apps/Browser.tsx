@@ -28,6 +28,7 @@ export default function Browser() {
 
     changeSiteAndAddress(url)
     setHistory(prev => [url, ...prev])
+    setHistoryIndex(0)
   }
 
   const changeSiteAndAddress = (url: string) => {
