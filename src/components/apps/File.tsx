@@ -123,7 +123,7 @@ export default function File() {
               <div className="h-16 w-16">
                 {fileHash[file.type]}
               </div>
-              <span className="w-full text-center text-gray-600 font-semibold text-xs truncate">{file.name}</span>
+              <span className="w-full text-center text-gray-600 font-medium text-xs truncate">{file.name}</span>
             </div>
           ))
         }
