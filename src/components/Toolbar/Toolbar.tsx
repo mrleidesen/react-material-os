@@ -80,15 +80,12 @@ export default function Toolbar() {
   return (
     <div className="bg-gray-100 bg-opacity-90 text-gray-700 h-6 shadow flex items-center justify-between box-border px-3 relative z-50">
       <div className="h-full flex">
-        <ToolbarItem className="h-full" title={isNight ? '现在是夜晚' : '现在是白天'}>
-          {
-            isNight ? <MoonIcon className="w-4 h-4" /> : <SunIcon className="w-4 h-4" />
-          }
-        </ToolbarItem>
       </div>
       <ClickShow showComponent={showCalendar()}>
-        <ClockIcon className="w-3 h-3 mr-1" />
-        <span>{time}</span>
+        {
+          isNight ? <MoonIcon className="w-3 h-3" /> : <SunIcon className="w-3 h-3" />
+        }
+        <span className="ml-1">{time}</span>
       </ClickShow>
       <div className="h-full flex">
         {
