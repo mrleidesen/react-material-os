@@ -83,7 +83,7 @@ export default function Toolbar() {
       </div>
       <ClickShow showComponent={showCalendar()}>
         {
-          isNight ? <MoonIcon className="w-3 h-3" /> : <SunIcon className="w-3 h-3" />
+          isNight ? <MoonIcon className="w-4 h-4" /> : <SunIcon className="w-4 h-4" />
         }
         <span className="ml-1">{time}</span>
       </ClickShow>
