@@ -6,6 +6,14 @@
 ## 在线预览
 [在线预览](https://mrleidesen.github.io/react-material-os/)
 
+## 部分功能
+* 窗口
+  * 最小化最大化
+  * 拖拉拽
+  * 双击放大以及类似于Windows拖到顶部放大
+* 亮度
+  * 修改画面亮度
+
 ## 运行
 ```
 yarn 
