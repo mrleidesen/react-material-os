@@ -11,13 +11,12 @@ import IconButton from '@material-ui/core/IconButton'
 import {
   SunIcon,
   MoonIcon,
-  ClockIcon,
   WifiIcon,
   VolumeUpIcon,
   VolumeOffIcon,
   CheckIcon,
   AnnotationIcon,
-  XCircleIcon
+  XCircleIcon,
 } from '@heroicons/react/solid'
 
 import dayjs from 'dayjs'
@@ -31,6 +30,10 @@ export default function Toolbar() {
     {
       icon: <VolumeUpIcon className="w-4 h-4" />,
       showComponent: showVolume()
+    },
+    {
+      icon: <SunIcon className="w-4 h-4" />,
+      showComponent: showBrightness()
     },
     {
       icon: <WifiIcon className="w-4 h-4" />,
@@ -192,6 +195,31 @@ const showNotice = () => {
           <div className="w-full h-full flex justify-center items-center">当前无通知</div>
         )
       }
+    </div>
+  )
+}
+
+const showBrightness = () => {
+  const [brightness, setBrightness] = useState(100)
+
+  const onChangeBrightness = (_e: any, value: number | number[]) => {
+    document.body.setAttribute('style', `filter: brightness(${value as number / 100})`)
+    setBrightness(value as number)
+  }
+
+  return (
+    <div className="w-64 flex items-center justify-between toolbar-fixover">
+      <MoonIcon className="w-4 h-4 mr-2" />
+      <div className="flex-1">
+        <Slider 
+          value={brightness} 
+          onChange={onChangeBrightness} 
+          aria-labelledby="continuous-slider" 
+          min={10}
+          max={100}
+        />
+      </div>
+      <SunIcon className="w-4 h-4 ml-2" />
     </div>
   )
 }
