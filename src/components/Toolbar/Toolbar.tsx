@@ -18,6 +18,9 @@ import {
   AnnotationIcon,
   XCircleIcon,
 } from '@heroicons/react/solid'
+import {
+  SunIcon as OutlineSunIcon
+} from '@heroicons/react/outline'
 
 import dayjs from 'dayjs'
 
@@ -103,12 +106,18 @@ export default function Toolbar() {
   )
 }
 
+/**
+ * 日历
+ */
 const showCalendar = () => (
   <div className="toolbar-popover top-9 w-96">
     <Calendar value={new Date()} className="reset-calendar" />
   </div>
 )
 
+/**
+ * 音量设置
+ */
 const showVolume = () => {
   const [volume, setVolume] = useState(50)
 
@@ -127,6 +136,9 @@ const showVolume = () => {
   )
 }
 
+/**
+ * Wifi设置
+ */
 const showWifiMenu = () => {
   const [nowWifi, setNowWifi] = useState(0)
   const wifies = [
@@ -155,6 +167,9 @@ const showWifiMenu = () => {
   )
 }
 
+/**
+ * 通知中心
+ */
 const showNotice = () => {
   const [notices, setNotices] = useState([
     {
@@ -199,6 +214,9 @@ const showNotice = () => {
   )
 }
 
+/**
+ * 亮度调节
+ */
 const showBrightness = () => {
   const [brightness, setBrightness] = useState(100)
 
@@ -209,7 +227,7 @@ const showBrightness = () => {
 
   return (
     <div className="w-64 flex items-center justify-between toolbar-fixover">
-      <MoonIcon className="w-4 h-4 mr-2" />
+      <OutlineSunIcon className="w-4 h-4 mr-2" />
       <div className="flex-1">
         <Slider 
           value={brightness} 

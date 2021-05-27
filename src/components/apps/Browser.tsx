@@ -52,18 +52,18 @@ export default function Browser() {
 
   return (
     <div className="w-full h-full flex flex-col">
-      <div className="w-full h-7 flex items-center justify-center border-b border-gray-200 bg-gray-100">
+      <div className="w-full h-7 flex items-center border-b border-gray-200 bg-gray-100">
         <div 
           onClick={() => changeHistory('left')}
-          className="w-9 h-7 flex justify-center items-center cursor-pointer bg-gray-200 border-r border-gray-100 hover:bg-white"
+          className="w-9 h-7 flex justify-center items-center cursor-pointer bg-gray-100 border-r border-gray-100 hover:bg-gray-200"
         >
-          <ArrowLeftIcon className="w-5 h-5 text-gray-700" />
+          <ArrowLeftIcon className="w-4 h-4 text-gray-600" />
         </div>
         <div 
           onClick={() => changeHistory('right')}
-          className="w-9 h-7 flex justify-center items-center cursor-pointer bg-gray-200 hover:bg-white"
+          className="w-9 h-7 flex justify-center items-center cursor-pointer bg-gray-100 hover:bg-gray-200"
         >
-          <ArrowRightIcon className="w-5 h-5 text-gray-700" />
+          <ArrowRightIcon className="w-4 h-4 text-gray-600" />
         </div>
         <input 
           type="text" 
