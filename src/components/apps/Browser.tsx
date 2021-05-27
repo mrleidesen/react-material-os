@@ -50,21 +50,40 @@ export default function Browser() {
     }
   }
 
+  const isDisabled = (type: 'left' | 'right' = "left"): boolean => {
+    if (history.length === 1) return true
+    if (type === 'left') {
+      return history.length > 1 && historyIndex === (history.length - 1)
+    } else {
+      return history.length > 1 && historyIndex === 0
+    }
+  }
+
   return (
     <div className="w-full h-full flex flex-col">
       <div className="w-full h-7 flex items-center border-b border-gray-200 bg-gray-100">
-        <div 
+        <button 
           onClick={() => changeHistory('left')}
-          className="w-9 h-7 flex justify-center items-center cursor-pointer bg-gray-100 border-r border-gray-100 hover:bg-gray-200"
+          disabled={isDisabled()}
+          className={
+            `w-9 h-7 flex justify-center items-center cursor-pointer bg-gray-100 border-r border-gray-100 ${isDisabled() ? "" : "hover:bg-gray-200"}`
+          }
         >
-          <ArrowLeftIcon className="w-4 h-4 text-gray-600" />
-        </div>
-        <div 
+          <ArrowLeftIcon className={
+            `w-4 h-4 ${isDisabled() ? "text-gray-300" : "text-gray-600"}`
+          } />
+        </button>
+        <button 
           onClick={() => changeHistory('right')}
-          className="w-9 h-7 flex justify-center items-center cursor-pointer bg-gray-100 hover:bg-gray-200"
+          disabled={isDisabled('right')}
+          className={
+            `w-9 h-7 flex justify-center items-center cursor-pointer bg-gray-100 border-r border-gray-100 ${isDisabled('right') ? "" : "hover:bg-gray-200"}`
+          }
         >
-          <ArrowRightIcon className="w-4 h-4 text-gray-600" />
-        </div>
+          <ArrowRightIcon className={
+            `w-4 h-4 ${isDisabled('right') ? "text-gray-300" : "text-gray-600"}`
+          } />
+        </button>
         <input 
           type="text" 
           className="text-xs text-gray-500 px-2 h-full w-1/2"
