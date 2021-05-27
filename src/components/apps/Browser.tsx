@@ -5,6 +5,8 @@ import {
   ArrowRightIcon
 } from '@heroicons/react/solid'
 
+type HistoryChangeType = 'left' | 'right'
+
 export default function Browser() {
   const [site, setSite] = useState("https://bing.com")
   const [address, setAddress] = useState("https://bing.com")
@@ -36,7 +38,7 @@ export default function Browser() {
     setAddress(url)
   }
 
-  const changeHistory = (type: 'left' | 'right') => {
+  const changeHistory = (type: HistoryChangeType) => {
     if (type === 'left') {
       if (historyIndex !== (history.length - 1)) {
         setHistoryIndex(historyIndex + 1)
@@ -50,7 +52,7 @@ export default function Browser() {
     }
   }
 
-  const isDisabled = (type: 'left' | 'right' = "left"): boolean => {
+  const isDisabled = (type: HistoryChangeType = "left"): boolean => {
     if (history.length === 1) return true
     if (type === 'left') {
       return history.length > 1 && historyIndex === (history.length - 1)
