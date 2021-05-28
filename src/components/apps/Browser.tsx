@@ -68,7 +68,7 @@ export default function Browser() {
           onClick={() => changeHistory('left')}
           disabled={isDisabled()}
           className={
-            `w-9 h-7 flex justify-center items-center cursor-pointer bg-gray-100 border-r border-gray-100 ${isDisabled() ? "" : "hover:bg-gray-200"}`
+            `w-9 h-7 flex justify-center items-center bg-gray-100 border-r border-gray-100 ${isDisabled() ? "" : "hover:bg-gray-200"}`
           }
         >
           <ArrowLeftIcon className={
@@ -79,7 +79,7 @@ export default function Browser() {
           onClick={() => changeHistory('right')}
           disabled={isDisabled('right')}
           className={
-            `w-9 h-7 flex justify-center items-center cursor-pointer bg-gray-100 border-r border-gray-100 ${isDisabled('right') ? "" : "hover:bg-gray-200"}`
+            `w-9 h-7 flex justify-center items-center bg-gray-100 border-r border-gray-100 ${isDisabled('right') ? "" : "hover:bg-gray-200"}`
           }
         >
           <ArrowRightIcon className={
