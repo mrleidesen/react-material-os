@@ -29,7 +29,13 @@ export default function WindowApp(props: WindowProps) {
       }))
     }
   }
-  const onResizeChange = (_e: MouseEvent | TouchEvent, _direction: any, ref: HTMLElement, _delta: any, r_position: any) => {
+  const onResizeChange = (
+    _e: MouseEvent | TouchEvent,
+    _direction: any,
+    ref: HTMLElement,
+    _delta: any,
+    r_position: any
+  ) => {
     setSize({
       width: ref.offsetWidth,
       height: ref.offsetHeight
@@ -58,26 +64,41 @@ export default function WindowApp(props: WindowProps) {
       disableDragging={isZoom}
       style={props.style}
     >
-      <div className={`rounded flex flex-col bg-gray-100 w-full h-full window-draggable__tool`} onClick={() => props.activeItem(props.id)}>
+      <div 
+        className={`rounded flex flex-col bg-gray-100 w-full h-full window-draggable__tool`} 
+        onClick={() => props.activeItem(props.id)}
+      >
         <div className="flex p-1 items-center justify-between box-border px-2 border-b border-gray-300">
-          <div className="flex-1 flex items-center text-gray-700 text-sm select-none handle" onDoubleClick={() => setIsZoom((prev) => !prev)}>
+          <div 
+            className="flex-1 flex items-center text-gray-700 text-sm select-none handle" 
+            onDoubleClick={() => setIsZoom((prev) => !prev)}
+          >
             <div className="h-5 w-5">{props.icon}</div>
             <span className="ml-2 font-semibold">{props.label || '无标题'}</span>
           </div>
           <div className="flex items-center h-full justify-end">
-            <IconButton size="small" onClick={(e) => {
-              e.stopPropagation()
-              props.hideItem(props.id)
-            }}>
+            <IconButton 
+              size="small" 
+              onClick={(e) => {
+                e.stopPropagation()
+                props.hideItem(props.id)
+              }}
+            >
               <MinusIcon className="w-4 h-4" />
             </IconButton>
-            <IconButton size="small" onClick={() => setIsZoom((prev) => !prev)}>
+            <IconButton 
+              size="small" 
+              onClick={() => setIsZoom((prev) => !prev)}
+            >
               <ArrowsExpandIcon className="w-4 h-4" />
             </IconButton>
-            <IconButton size="small" onClick={(e) => {
-              e.stopPropagation()
-              props.deactiveItem(props.id)
-            }}>
+            <IconButton 
+              size="small" 
+              onClick={(e) => {
+                e.stopPropagation()
+                props.deactiveItem(props.id)
+              }}
+            >
               <XIcon className="w-4 h-4 text-red-500" />
             </IconButton>
           </div>
