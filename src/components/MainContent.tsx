@@ -1,5 +1,6 @@
-import { MainContentProps } from '@/types/components'
 import React from 'react'
+import { useStore } from '@/store'
+
 import WindowApp from './Window'
 
 import VSCode from './apps/VSCode'
@@ -7,7 +8,8 @@ import Terminal from './apps/Terminal'
 import Browser from './apps/Browser'
 import File from './apps/File'
 
-export default function MainContent(props: MainContentProps) {
+export default function MainContent() {
+  const state = useStore()
   const componentHash: {[key: number]: React.ReactNode} = {
     1: <File />,
     2: <Browser />,
@@ -16,8 +18,8 @@ export default function MainContent(props: MainContentProps) {
   }
 
   const computedZIndex = (id: number) => {
-    const findIndex = props.activeIds.findIndex(activeId => activeId === id) + 1
-    const defaultZIndex = props.activeId === id ? 20 : 10
+    const findIndex = state.activeIds.findIndex(activeId => activeId === id) + 1
+    const defaultZIndex = state.activeId === id ? 20 : 10
 
     return defaultZIndex + findIndex
   }
@@ -25,16 +27,16 @@ export default function MainContent(props: MainContentProps) {
   return (
     <div className="relative flex-1">
       {
-        props.icons.map(icon => (
-          props.activeIds.includes(icon.id) ? (
+        state.icons.map(icon => (
+          state.activeIds.includes(icon.id) ? (
             <WindowApp 
               key={icon.id}
               id={icon.id}
               label={icon.name}
-              className={`${props.activeId === icon.id ? 'window-draggable--active' : ''} ${props.hideIds.includes(icon.id) ? 'hidden-important' : ''}`}
-              activeItem={props.activeItem}
-              deactiveItem={props.deactiveItem}
-              hideItem={props.hideItem}
+              className={`${state.activeId === icon.id ? 'window-draggable--active' : ''} ${state.hideIds.includes(icon.id) ? 'hidden-important' : ''}`}
+              activeItem={state.activeItem}
+              deactiveItem={state.deactiveItem}
+              hideItem={state.hideItem}
               icon={icon.icon}
               style={{
                 zIndex: computedZIndex(icon.id)
