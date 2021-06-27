@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, KeyboardEvent, ChangeEvent } from 'react'
 import dayjs from 'dayjs'
 
 interface TerminalLine {
@@ -15,14 +15,14 @@ export default function TerminalApp() {
     input: ""
   }])
 
-  const onKeyEnter = (e: React.KeyboardEvent, index: number) => {
+  const onKeyEnter = (e: KeyboardEvent, index: number) => {
     if (e.code === 'Enter') {
       executeCommand(inputValue, index)
       setInputIndex(prev => prev + 1)
       setInputValue("")
     }
   }
-  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value)
   }
 

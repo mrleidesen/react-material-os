@@ -40,9 +40,6 @@ export interface IconsProps {
 }
 
 export interface WindowProps extends DefaultProps {
-  activeItem: ItemActive;
-  deactiveItem: ItemActive;
-  hideItem: ItemActive;
   id: number;
   label?: string;
   icon: React.ReactNode;

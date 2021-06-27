@@ -1,5 +1,5 @@
 import { ClickShowProps } from '@/types/components';
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import ToolbarItem from './ToolbarItem'

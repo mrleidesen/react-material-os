@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState, createContext, ReactNode } from 'react'
 import { IconsProps } from "@/types/components";
 
 import {
@@ -24,11 +24,11 @@ interface StoreProps {
     removeHideItem: (id: number) => void
 }
 
-const StoreContext = React.createContext<StoreProps>({} as StoreProps)
+const StoreContext = createContext<StoreProps>({} as StoreProps)
 
 export const useStore = () => useContext(StoreContext)
 
-export function StoreElement({ children }: { children: React.ReactNode }) {
+export function StoreElement({ children }: { children: ReactNode }) {
     const icons: IconsProps[] = [
         {
           id: 1,

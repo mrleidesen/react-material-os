@@ -1,5 +1,3 @@
-import { BottomToolsProps } from '@/types/components'
-import React from 'react'
 import RoundIcon from './RoundIcon'
 
 import GithubIcon from '@/assets/github.svg'

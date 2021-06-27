@@ -1,5 +1,4 @@
 import { DefaultProps } from '@/types/components';
-import React from 'react'
 
 export default function ToolbarItem(props: DefaultProps) {
   return (

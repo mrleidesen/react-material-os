@@ -1,4 +1,3 @@
-import React from "react";
 import Toolbar from '@/components/Toolbar/Toolbar'
 import MainContent from '@/components/MainContent'
 import BottomTools from '@/components/Dock/BottomTools'

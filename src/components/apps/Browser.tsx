@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, ChangeEvent, KeyboardEvent } from 'react'
 import { checkURLIsValid } from '@/utils'
 import {
   ArrowLeftIcon,
@@ -13,10 +13,10 @@ export default function Browser() {
   const [history, setHistory] = useState(["https://bing.com"])
   const [historyIndex, setHistoryIndex] = useState(0)
 
-  const onChangeAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeAddress = (e: ChangeEvent<HTMLInputElement>) => {
     setAddress(e.target.value)
   }
-  const onKeyChange = (e: React.KeyboardEvent) => {
+  const onKeyChange = (e: KeyboardEvent) => {
     if (e.key !== 'Enter') return
     let url = ''
     const isValid = checkURLIsValid(address)

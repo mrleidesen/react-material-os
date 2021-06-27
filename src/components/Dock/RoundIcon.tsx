@@ -1,4 +1,3 @@
-import React from 'react'
 import { RoundIconProps } from '@/types/components'
 
 const RoundIcon = ({ children, className, ...rest }: RoundIconProps) => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, ReactNode } from 'react'
 import {
   DesktopComputerIcon,
   MusicNoteIcon,
@@ -83,7 +83,7 @@ export default function File() {
     },
   ]
 
-  const fileHash: {[key: string]: React.ReactNode} = {
+  const fileHash: {[key: string]: ReactNode} = {
     'file': (
       <DocumentTextIcon className="h-full w-full text-gray-300" />
     ),

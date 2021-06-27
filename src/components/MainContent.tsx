@@ -1,4 +1,4 @@
-import React from 'react'
+import { ReactNode } from 'react'
 import { useStore } from '@/store'
 
 import WindowApp from './Window'
@@ -10,7 +10,7 @@ import File from './apps/File'
 
 export default function MainContent() {
   const state = useStore()
-  const componentHash: {[key: number]: React.ReactNode} = {
+  const componentHash: {[key: number]: ReactNode} = {
     1: <File />,
     2: <Browser />,
     3: <Terminal />,
@@ -34,9 +34,6 @@ export default function MainContent() {
               id={icon.id}
               label={icon.name}
               className={`${state.activeId === icon.id ? 'window-draggable--active' : ''} ${state.hideIds.includes(icon.id) ? 'hidden-important' : ''}`}
-              activeItem={state.activeItem}
-              deactiveItem={state.deactiveItem}
-              hideItem={state.hideItem}
               icon={icon.icon}
               style={{
                 zIndex: computedZIndex(icon.id)

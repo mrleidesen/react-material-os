@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Rnd } from 'react-rnd'
 
 import IconButton from '@material-ui/core/IconButton'
@@ -8,8 +8,10 @@ import {
   ArrowsExpandIcon
 } from '@heroicons/react/solid'
 import { WindowProps } from '@/types/components'
+import { useStore } from '@/store'
 
 export default function WindowApp(props: WindowProps) {
+  const state = useStore()
   const [isZoom, setIsZoom] = useState(false)
   const [position, setPosition] = useState({ x: 100, y: 100 })
   const [size, setSize] = useState({ width: 500, height: 400 })
@@ -66,7 +68,7 @@ export default function WindowApp(props: WindowProps) {
     >
       <div 
         className={`rounded flex flex-col bg-gray-100 w-full h-full window-draggable__tool`} 
-        onClick={() => props.activeItem(props.id)}
+        onClick={() => state.activeItem(props.id)}
       >
         <div className="flex p-1 items-center justify-between box-border px-2 border-b border-gray-300">
           <div 
@@ -81,7 +83,7 @@ export default function WindowApp(props: WindowProps) {
               size="small" 
               onClick={(e) => {
                 e.stopPropagation()
-                props.hideItem(props.id)
+                state.hideItem(props.id)
               }}
             >
               <MinusIcon className="w-4 h-4" />
@@ -96,7 +98,7 @@ export default function WindowApp(props: WindowProps) {
               size="small" 
               onClick={(e) => {
                 e.stopPropagation()
-                props.deactiveItem(props.id)
+                state.deactiveItem(props.id)
               }}
             >
               <XIcon className="w-4 h-4 text-red-500" />
