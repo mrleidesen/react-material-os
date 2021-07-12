@@ -84,13 +84,14 @@ export default function Toolbar() {
 
   return (
     <div className="bg-gray-100 bg-opacity-90 text-gray-700 h-6 shadow flex items-center justify-center box-border px-3 relative z-50">
+      <div className="h-full flex flex-1"></div>
       <ClickShow showComponent={showCalendar()}>
         {
           isNight ? <MoonIcon className="w-4 h-4" /> : <SunIcon className="w-4 h-4" />
         }
         <span className="ml-1">{time}</span>
       </ClickShow>
-      <div className="h-full flex absolute right-0 top-0">
+      <div className="h-full flex-1 flex justify-end">
         {
           icons.map((icon, i) => (
             <ClickShow key={i} showComponent={icon.showComponent}>
