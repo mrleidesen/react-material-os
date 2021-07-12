@@ -106,21 +106,21 @@ export function StoreElement({ children }: { children: ReactNode }) {
       }
 
     return (
-        <StoreContext.Provider
-            value={{
-                icons,
-                activeId,
-                setActiveId,
-                activeIds,
-                setActiveIds,
-                hideIds,
-                setHideIds,
-                activeItem,
-                toggleActiveItem,
-                deactiveItem,
-                hideItem,
-                removeHideItem
-            }}
-        >{ children }</StoreContext.Provider>
+      <StoreContext.Provider
+        value={{
+          icons,
+          activeId,
+          setActiveId,
+          activeIds,
+          setActiveIds,
+          hideIds,
+          setHideIds,
+          activeItem,
+          toggleActiveItem,
+          deactiveItem,
+          hideItem,
+          removeHideItem
+        }}
+      >{ children }</StoreContext.Provider>
     )
 }
