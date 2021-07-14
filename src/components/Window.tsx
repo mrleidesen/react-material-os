@@ -57,7 +57,7 @@ export default function WindowApp(props: WindowProps) {
         width: isZoom ? '100%' : size.width,
         height: isZoom ? '100%' : size.height,
       }}
-      className={`window-draggable ${props.className ?? ""}`}
+      className={`window-draggable ${props.variant ?? ""}`}
       minHeight="300px"
       minWidth="300px"
       onDrag={onDragUpdatePosition}

@@ -33,7 +33,7 @@ export default function MainContent() {
               key={icon.id}
               id={icon.id}
               label={icon.name}
-              className={`${state.activeId === icon.id ? 'window-draggable--active' : ''} ${state.hideIds.includes(icon.id) ? 'hidden-important' : ''}`}
+              variant={`${state.activeId === icon.id ? 'window-draggable--active' : ''} ${state.hideIds.includes(icon.id) ? 'hidden-important' : ''}`}
               icon={icon.icon}
               style={{
                 zIndex: computedZIndex(icon.id)

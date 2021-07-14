@@ -25,7 +25,7 @@ export default function ClickShow(props: ClickShowProps) {
     <ClickAwayListener onClickAway={onClosePopover}>
       <div className="relative h-full flex justify-center items-center">
         <ToolbarItem
-          className="text-xs"
+          variant="text-xs"
           onClick={onTogglePopover}
         >
           {props.children}

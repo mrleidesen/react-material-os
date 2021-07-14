@@ -2,7 +2,7 @@ import React from "react";
 
 export interface DefaultProps {
   children?: React.ReactNode;
-  className?: string;
+  variant?: string;
   key?: React.Key;
   onClick?: React.MouseEventHandler;
   title?: string;

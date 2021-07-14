@@ -11,7 +11,12 @@ export default function BottomTools() {
       <div className="bg-white bg-opacity-60 rounded-3xl min-w-min h-16 box-border p-4 shadow flex items-center justify-center">
         {
           state.icons && state.icons.map((icon) => (
-            <RoundIcon title={icon.name} key={icon.id} onClick={() => state.activeItem && state.activeItem(icon.id)} className={state.activeIds.includes(icon.id) ? 'round-icon--active' : ''}>
+            <RoundIcon 
+              title={icon.name} 
+              key={icon.id} 
+              onClick={() => state.activeItem && state.activeItem(icon.id)} 
+              variant={state.activeIds.includes(icon.id) ? 'round-icon--active' : ''}
+            >
               {icon.icon}
             </RoundIcon>
           ))
