@@ -42,15 +42,23 @@ export default function Browser() {
 
   const changeHistory = (type: HistoryChangeType) => {
     if (type === 'left') {
-      if (historyIndex !== (history.length - 1)) {
-        setHistoryIndex(historyIndex + 1)
-        changeSiteAndAddress(history[historyIndex + 1])
-      }
+      historyGoAfterward()
     } else {
-      if (historyIndex !== 0) {
-        setHistoryIndex(historyIndex - 1)
-        changeSiteAndAddress(history[historyIndex - 1])
-      }
+      historyGoForward()
+    }
+  }
+
+  const historyGoAfterward = () => {
+    if (historyIndex !== (history.length - 1)) {
+      setHistoryIndex(historyIndex + 1)
+      changeSiteAndAddress(history[historyIndex + 1])
+    }
+  }
+
+  const historyGoForward = () => {
+    if (historyIndex !== 0) {
+      setHistoryIndex(historyIndex - 1)
+      changeSiteAndAddress(history[historyIndex - 1])
     }
   }
 
