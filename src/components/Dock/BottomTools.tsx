@@ -6,6 +6,10 @@ import { useStore } from '@/store'
 export default function BottomTools() {
   const state = useStore()
 
+  const onActiveItem = (id: number) => {
+    state.activeItem && state.activeItem(id)
+  }
+
   return (
     <div className="h-20 w-full box-border px-8 py-2 flex items-center justify-center relative z-50">
       <div className="bg-white bg-opacity-60 rounded-3xl min-w-min h-16 box-border p-4 shadow flex items-center justify-center">
@@ -14,7 +18,7 @@ export default function BottomTools() {
             <RoundIcon 
               title={icon.name} 
               key={icon.id} 
-              onClick={() => state.activeItem && state.activeItem(icon.id)} 
+              onClick={() => onActiveItem(icon.id)} 
               variant={state.activeIds.includes(icon.id) ? 'round-icon--active' : ''}
             >
               {icon.icon}

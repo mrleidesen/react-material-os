@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface DefaultProps {
+export declare type DefaultProps = {
   children?: React.ReactNode;
   variant?: string;
   key?: React.Key;
@@ -9,7 +9,7 @@ export interface DefaultProps {
   style?: React.CSSProperties;
 }
 
-export interface ClickShowProps extends DefaultProps {
+export declare type ClickShowProps = DefaultProps & {
   showComponent: React.ReactNode
 }
 
@@ -17,7 +17,7 @@ export type RoundIconProps = DefaultProps
 
 export type ItemActive = (id: number) => void
 
-export interface BottomToolsProps extends DefaultProps {
+export declare type BottomToolsProps = DefaultProps & {
   activeItem?: ItemActive;
   deactiveItem?: ItemActive;
   hideItem?: ItemActive;
@@ -25,7 +25,7 @@ export interface BottomToolsProps extends DefaultProps {
   activeIds: number[];
 }
 
-export interface MainContentProps extends BottomToolsProps {
+export declare type MainContentProps = BottomToolsProps & {
   activeId: number | null;
   activeItem: ItemActive;
   deactiveItem: ItemActive;
@@ -33,13 +33,13 @@ export interface MainContentProps extends BottomToolsProps {
   hideIds: number[];
 }
 
-export interface IconsProps {
+export declare type IconsProps = {
   id: number;
   icon: React.ReactNode;
   name?: string;
 }
 
-export interface WindowProps extends DefaultProps {
+export declare type WindowProps = DefaultProps & {
   id: number;
   label?: string;
   icon: React.ReactNode;

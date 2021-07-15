@@ -9,7 +9,7 @@ import {
 
 import VSCodeIcon from "@/assets/vscode.png"
 
-interface StoreProps {
+type StoreProps = {
   icons: IconsProps[]
   activeId: number | null
   setActiveId: (val: number) => void

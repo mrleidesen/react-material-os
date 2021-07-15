@@ -1,7 +1,7 @@
 import { useState, KeyboardEvent, ChangeEvent } from 'react'
 import dayjs from 'dayjs'
 
-interface TerminalLine {
+type TerminalLine = {
   type: 'input' | 'show';
   input?: string;
   show?: string[]

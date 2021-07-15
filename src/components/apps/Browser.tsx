@@ -18,19 +18,21 @@ export default function Browser() {
   }
   const onKeyChange = (e: KeyboardEvent) => {
     if (e.key !== 'Enter') return
-    let url = ''
     const isValid = checkURLIsValid(address)
-
-    if (isValid) {
-      const host = address.split('://')
-      url = `https://${host[1] ?? host[0]}`
-    } else {
-      url = `https://bing.com/search?q=${address}`
-    }
+    const url = validAddress(isValid)
 
     changeSiteAndAddress(url)
     setHistory(prev => [url, ...prev])
     setHistoryIndex(0)
+  }
+
+  const validAddress = (isValid: boolean) => {
+    if (isValid) {
+      const host = address.split('://')
+      return `https://${host[1] ?? host[0]}`
+    } else {
+      return `https://bing.com/search?q=${address}`
+    }
   }
 
   const changeSiteAndAddress = (url: string) => {
