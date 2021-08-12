@@ -4,7 +4,7 @@
 也偶尔会写一些新特性在这个项目中实验 
 
 ## 在线预览
-[在线预览](https://mrleidesen.github.io/react-material-os/)
+[在线预览地址](https://mrleidesen.github.io/react-material-os/)
 
 ## 部分功能
 * 窗口
