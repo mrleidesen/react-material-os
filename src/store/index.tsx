@@ -9,19 +9,22 @@ import {
 
 import VSCodeIcon from "@/assets/vscode.png"
 
+type TFunc<T> = (val: T) => void
+type Optional<T> = T | null
+
 type StoreProps = {
   icons: IconsProps[]
-  activeId: number | null
-  setActiveId: (val: number) => void
+  activeId: Optional<number>
+  setActiveId: TFunc<number>
   activeIds: number[]
-  setActiveIds: (val: number[]) => void
+  setActiveIds: TFunc<number[]>
   hideIds: number[]
-  setHideIds: (val: number[]) => void
-  activeItem: (id: number | null) => void
-  toggleActiveItem: (id: number) => void
-  deactiveItem: (id: number) => void
-  hideItem: (id: number) => void
-  removeHideItem: (id: number) => void
+  setHideIds: TFunc<number[]>
+  activeItem: TFunc<Optional<number>>
+  toggleActiveItem: TFunc<number>
+  deactiveItem: TFunc<number>
+  hideItem: TFunc<number>
+  removeHideItem: TFunc<number>
 }
 
 const StoreContext = createContext<StoreProps>({} as StoreProps)
