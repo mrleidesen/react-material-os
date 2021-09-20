@@ -1,35 +1,35 @@
-import { useContext, useState, createContext, ReactNode } from "react"
-import { IconsProps } from "@/types/components"
+import { useContext, useState, createContext, ReactNode } from "react";
+import { IconsProps } from "@/types/components";
 
 import {
   CollectionIcon,
   GlobeIcon,
   TerminalIcon,
-} from "@heroicons/react/solid"
+} from "@heroicons/react/solid";
 
-import VSCodeIcon from "@/assets/vscode.png"
+import VSCodeIcon from "@/assets/vscode.png";
 
-type TFunc<T> = (val: T) => void
-type Optional<T> = T | null
+type TFunc<T> = (val: T) => void;
+type Optional<T> = T | null;
 
 type StoreProps = {
-  icons: IconsProps[]
-  activeId: Optional<number>
-  setActiveId: TFunc<number>
-  activeIds: number[]
-  setActiveIds: TFunc<number[]>
-  hideIds: number[]
-  setHideIds: TFunc<number[]>
-  activeItem: TFunc<Optional<number>>
-  toggleActiveItem: TFunc<number>
-  deactiveItem: TFunc<number>
-  hideItem: TFunc<number>
-  removeHideItem: TFunc<number>
-}
+  icons: IconsProps[];
+  activeId: Optional<number>;
+  setActiveId: TFunc<number>;
+  activeIds: number[];
+  setActiveIds: TFunc<number[]>;
+  hideIds: number[];
+  setHideIds: TFunc<number[]>;
+  activeItem: TFunc<Optional<number>>;
+  toggleActiveItem: TFunc<number>;
+  deactiveItem: TFunc<number>;
+  hideItem: TFunc<number>;
+  removeHideItem: TFunc<number>;
+};
 
-const StoreContext = createContext<StoreProps>({} as StoreProps)
+const StoreContext = createContext<StoreProps>({} as StoreProps);
 
-export const useStore = () => useContext(StoreContext)
+export const useStore = () => useContext(StoreContext);
 
 export function StoreElement({ children }: { children: ReactNode }) {
   const icons: IconsProps[] = [
@@ -58,52 +58,52 @@ export function StoreElement({ children }: { children: ReactNode }) {
       ),
       name: "VSCode",
     },
-  ]
-  const [activeId, setActiveId] = useState<number | null>(null)
-  const [activeIds, setActiveIds] = useState<number[]>([])
-  const [hideIds, setHideIds] = useState<number[]>([])
+  ];
+  const [activeId, setActiveId] = useState<number | null>(null);
+  const [activeIds, setActiveIds] = useState<number[]>([]);
+  const [hideIds, setHideIds] = useState<number[]>([]);
 
   const activeItem = (id: number | null) => {
     if (!id) {
-      setActiveId(null)
+      setActiveId(null);
     } else {
-      setActiveId(id)
+      setActiveId(id);
       setActiveIds((prev) => {
-        const filterPrev = prev.filter((v) => v !== id)
-        return [...filterPrev, id]
-      })
+        const filterPrev = prev.filter((v) => v !== id);
+        return [...filterPrev, id];
+      });
     }
-  }
+  };
   const toggleActiveItem = (id: number) => {
     if (!activeIds.includes(id)) {
-      activeItem(id)
+      activeItem(id);
     } else {
       if (activeId === id) {
-        hideItem(id)
-        activeItem(null)
+        hideItem(id);
+        activeItem(null);
       } else {
-        activeItem(id)
-        removeHideItem(id)
+        activeItem(id);
+        removeHideItem(id);
       }
     }
-  }
+  };
   const deactiveItem = (id: number) => {
-    activeItem(null)
-    setActiveIds((prev) => prev.filter((v) => v !== id))
-    removeHideItem(id)
-  }
+    activeItem(null);
+    setActiveIds((prev) => prev.filter((v) => v !== id));
+    removeHideItem(id);
+  };
 
   const hideItem = (id: number) => {
     if (!hideIds.includes(id)) {
-      activeItem(null)
-      setHideIds((prev) => [...prev, id])
+      activeItem(null);
+      setHideIds((prev) => [...prev, id]);
     }
-  }
+  };
   const removeHideItem = (id: number) => {
     if (hideIds.includes(id)) {
-      setHideIds((prev) => prev.filter((v) => v !== id))
+      setHideIds((prev) => prev.filter((v) => v !== id));
     }
-  }
+  };
 
   return (
     <StoreContext.Provider
@@ -124,5 +124,5 @@ export function StoreElement({ children }: { children: ReactNode }) {
     >
       {children}
     </StoreContext.Provider>
-  )
+  );
 }

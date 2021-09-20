@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .bg-wallpaper {
-  background-image: url('./assets/bg.jpg');
+  background-image: url("./assets/bg.jpg");
 }
 
 .reset-calendar {
@@ -44,7 +44,9 @@
   }
 }
 
-button:focus, textarea:focus, input:focus {
+button:focus,
+textarea:focus,
+input:focus {
   outline: none !important;
 }
 
@@ -59,7 +61,7 @@ button:focus, textarea:focus, input:focus {
   align-content: center;
 }
 .menus-item:empty::after {
-  content: '当前文件夹为空';
+  content: "当前文件夹为空";
   width: 100%;
   text-align: center;
 }

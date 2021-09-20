@@ -10,4 +10,4 @@ export const checkURLIsValid = (str: string) => {
     "i" // fragment locator
   );
   return !!pattern.test(str);
-}
+};

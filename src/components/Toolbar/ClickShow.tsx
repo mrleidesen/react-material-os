@@ -1,39 +1,34 @@
-import { ClickShowProps } from '@/types/components';
-import { useState } from 'react'
+import { ClickShowProps } from "@/types/components";
+import { useState } from "react";
 
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
-import ToolbarItem from './ToolbarItem'
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import ToolbarItem from "./ToolbarItem";
 
 export default function ClickShow(props: ClickShowProps) {
-  const [popover, setPopover] = useState(false)
+  const [popover, setPopover] = useState(false);
 
   const onClosePopover = () => {
-    setPopover(false)
-  }
+    setPopover(false);
+  };
   const onOpenPopover = () => {
-    setPopover(true)
-  }
+    setPopover(true);
+  };
   const onTogglePopover = () => {
     if (popover) {
-      onClosePopover()
+      onClosePopover();
     } else {
-      onOpenPopover()
+      onOpenPopover();
     }
-  }
+  };
 
   return (
     <ClickAwayListener onClickAway={onClosePopover}>
       <div className="relative h-full flex justify-center items-center">
-        <ToolbarItem
-          variant="text-xs"
-          onClick={onTogglePopover}
-        >
+        <ToolbarItem variant="text-xs" onClick={onTogglePopover}>
           {props.children}
         </ToolbarItem>
-        {
-          popover ? props.showComponent : null
-        }
+        {popover ? props.showComponent : null}
       </div>
     </ClickAwayListener>
-  )
+  );
 }
