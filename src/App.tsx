@@ -1,7 +1,7 @@
-import Toolbar from '@/components/Toolbar/Toolbar'
-import MainContent from '@/components/MainContent'
-import BottomTools from '@/components/Dock/BottomTools'
-import { StoreElement } from '@/store'
+import Toolbar from "@/components/Toolbar/Toolbar";
+import MainContent from "@/components/MainContent";
+import BottomTools from "@/components/Dock/BottomTools";
+import { StoreElement } from "@/store";
 
 export default function App() {
   return (
@@ -14,4 +14,3 @@ export default function App() {
     </StoreElement>
   );
 }
-
