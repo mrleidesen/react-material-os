@@ -72,6 +72,7 @@ export function StoreElement({ children }: { children: ReactNode }) {
         const filterPrev = prev.filter((v) => v !== id);
         return [...filterPrev, id];
       });
+      removeHideItem(id);
     }
   };
   const toggleActiveItem = (id: number) => {
